@@ -13,7 +13,7 @@ import pandas as pd
 
 
 app = Flask(__name__)
-model = pickle.load(open('flight_price_predictions_random_forest.pkl', 'rb'))
+model = pickle.load(open('final_rf.pkl', 'rb'))
 
 
 @app.route("/")
@@ -211,30 +211,42 @@ def predict():
             s_Kolkata = 0
             s_Mumbai = 0
             s_Chennai = 0
+            s_Bengaluru = 0
 
         elif (Source == 'Kolkata'):
             s_Delhi = 0
             s_Kolkata = 1
             s_Mumbai = 0
             s_Chennai = 0
+            s_Bengaluru = 0
 
         elif (Source == 'Mumbai'):
             s_Delhi = 0
             s_Kolkata = 0
             s_Mumbai = 1
             s_Chennai = 0
+            s_Bengaluru = 0
 
         elif (Source == 'Chennai'):
             s_Delhi = 0
             s_Kolkata = 0
             s_Mumbai = 0
             s_Chennai = 1
+            s_Bengaluru = 0
+
+        elif (Source == 'Bengaluru'):
+            s_Delhi = 0
+            s_Kolkata = 0
+            s_Mumbai = 0
+            s_Chennai = 0
+            s_Bengaluru = 1
 
         else:
             s_Delhi = 0
             s_Kolkata = 0
             s_Mumbai = 0
             s_Chennai = 0
+            s_Bengaluru = 0
 
         Destination = request.form["Destination"]
         if (Destination == 'Cochin'):
@@ -242,32 +254,42 @@ def predict():
             d_Delhi = 0
             d_Hyderabad = 0
             d_Kolkata = 0
+            d_Bengaluru = 0
         
         elif (Destination == 'Delhi'):
             d_Cochin = 0
             d_Delhi = 1
             d_Hyderabad = 0
             d_Kolkata = 0
+            d_Bengaluru = 0
 
         elif (Destination == 'Hyderabad'):
             d_Cochin = 0
             d_Delhi = 0
             d_Hyderabad = 1
             d_Kolkata = 0
+            d_Bengaluru = 0
 
         elif (Destination == 'Kolkata'):
             d_Cochin = 0
             d_Delhi = 0
-            d_New_Delhi = 0
             d_Hyderabad = 0
             d_Kolkata = 1
+            d_Bengaluru = 0
+
+        elif (Source == 'Bengaluru'):
+            d_Cochin = 0
+            d_Delhi = 0
+            d_Hyderabad = 0
+            d_Kolkata = 0
+            d_Bengaluru = 1
 
         else:
             d_Cochin = 0
             d_Delhi = 0
             d_Hyderabad = 0
             d_Kolkata = 0
-
+            d_Bengaluru = 0
       
         prediction=model.predict([[
             Total_stops,
@@ -290,10 +312,12 @@ def predict():
             Trujet,
             Vistara,
             Vistara_Premium_economy,
+            s_Bengaluru,
             s_Chennai,
             s_Delhi,
             s_Kolkata,
             s_Mumbai,
+            d_Bengaluru,
             d_Cochin,
             d_Delhi,
             d_Hyderabad,
