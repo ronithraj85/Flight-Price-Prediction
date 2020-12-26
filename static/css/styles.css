@@ -20,6 +20,17 @@ body {
    padding: 1px 5px;
 }
 
+.result-footer {
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(20, 46, 71);
+   color: white;
+   text-align: right;
+   padding: 1px 5px;
+   position: fixed;
+}
+
 .card-color{
     background-color : lightblue;
 }

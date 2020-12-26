@@ -1,0 +1,48 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Price Prediction</title>
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- css -->
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <!-- script -->
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+    <div class='header'>
+        <b>FLIGHTS PRICE PREDICTION ACROSS INDIA</b>
+    </div>
+
+    <br><br><br>
+
+    <div>
+        <center>
+            <h2>Details of your flight are given below:</h2>
+        </center>
+        <br>
+        <h3 class="predictions">
+            {{ source }}<br>
+            {{ destination }}<br>
+            {{ predicted_price }}
+        </h3>
+        <center>
+            <h2>Have a safe journey!</h2>
+        </center>
+    </div>
+    <div class="result-footer">
+        <p>
+            <b>
+                <center>©2020 December - Ronith Raj</center>
+            </b>
+        </p>
+    </div>
+</body>
+
+</html>
