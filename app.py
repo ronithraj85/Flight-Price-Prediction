@@ -326,7 +326,7 @@ def predict():
 
         output=round(prediction[0],2)
 
-        return render_template('home.html',predicted_price="Best price for your flight is Rs. {}".format(output),source = "Selected Source : {}".format(Source),destination="Selected Destination: {}".format(Destination))
+        return render_template('result.html',predicted_price="Best price for your flight is Rs. {}".format(output),source = "Selected Source : {}".format(Source),destination="Selected Destination: {}".format(Destination))
 
 
     return render_template("home.html")
